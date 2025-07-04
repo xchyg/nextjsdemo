@@ -14,6 +14,7 @@ export default async function PostDetail({ params }: { params: Promise<{ id: str
 
     const data = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
       .then(response => response.json())
+      .catch((err) => ({title: err.toString()}))
 
     return <div>文章{id}: {data.title}</div>
 }
